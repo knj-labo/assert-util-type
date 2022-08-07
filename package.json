@@ -2,14 +2,18 @@
   "name": "assert-util-types",
   "version": "0.0.1",
   "description": "provide assert util types",
-  "main": "index.ts",
+  "main": "src/main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite"
   },
   "keywords": [
     "typescript",
     "util"
   ],
   "author": "jp-knj",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "4.7.4",
+    "vite": "3.0.4"
+  }
 }
