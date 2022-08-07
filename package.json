@@ -1,0 +1,15 @@
+{
+  "name": "assert-util-types",
+  "version": "0.0.1",
+  "description": "provide assert util types",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "util"
+  ],
+  "author": "jp-knj",
+  "license": "MIT"
+}
