@@ -4,7 +4,8 @@
   "description": "provide assert util types",
   "main": "src/main.ts",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "test": "vitest"
   },
   "keywords": [
     "typescript",
@@ -19,6 +20,7 @@
     "eslint-config-prettier": "8.5.0",
     "prettier": "2.7.1",
     "typescript": "4.7.4",
-    "vite": "3.0.4"
+    "vite": "3.0.4",
+    "vitest": "0.21.1"
   }
 }
