@@ -12,7 +12,7 @@ function isFilledArray<T>(value: unknown): value is T[] {
  * when there is no item in array, throw error
  * @param {unknown} - value
  */
-function assertFilledArray<T>(
+export function assertFilledArray<T>(
     value: unknown,
     target = ''
 ): asserts value is T[] {

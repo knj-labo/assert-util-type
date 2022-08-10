@@ -12,7 +12,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
  * when it has not the object type, throw error
  * @param {string} - value
  */
-function assertObject(
+export function assertObject(
     value: unknown,
     target = ''
 ): asserts value is Record<string, unknown> {
