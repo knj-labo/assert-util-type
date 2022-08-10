@@ -1,44 +1,45 @@
 import { PreconditionError } from './precondition-error';
-import {serialize} from "./serialize";
+import { serialize } from "./serialize";
 
-function isString(value: unknown): value is string{
-    return typeof value === 'string';
+function isNumber(value: unknown): value is number {
+    return typeof value === 'number' && !isNaN(value);
 }
 
-/**
- * when it is not the string type, throw error
- * @param {string} - value
- */
-export function assertString(value: unknown, target = ''): asserts value is string {
-    if (!isString(value)) {
-        throw new PreconditionError(`${target} should be string`.trim());
+function assertNumber(value: unknown, target = ''): asserts value is number {
+    if (!isNumber(value)) {
+        throw new PreconditionError(`${target} should be number`.trim());
     }
 }
 
-export function asString(value: unknown, target = ''): string {
-    assertString(value, target);
-    return value;
+function asNumber(value: unknown): number {
+    const n = Number(value);
+    assertNumber(n);
+    return n;
 }
 
 if (import.meta.vitest) {
     const { describe, test, expect } = import.meta.vitest
     describe('Use case for assertString function', () => {
         describe('“nomal usecase” the values return true are', () => {
-            ['string'].forEach((value) => {
+            [
+                1,
+                1.1
+            ].forEach((value) => {
                 test(serialize(value), () => {
-                    expect(() => assertString(value, '')).not.toThrow();
+                    expect(() => assertNumber(value, '')).not.toThrow();
                 });
                 test(serialize(value), () => {
-                    expect(asString(value, '')).toBe(value);
+                    expect(asNumber(value)).toBe(value);
                 });
             });
         });
 
         describe('“exception usecase” the values return false are', () => {
             [
-                [],
                 {},
-                1,
+                [],
+                'string',
+                '1',
                 BigInt(1),
                 null,
                 undefined,
@@ -49,10 +50,7 @@ if (import.meta.vitest) {
                 (): void => {},
             ].forEach((value) => {
                 test(serialize(value), () => {
-                    expect(() => assertString(value, '')).toThrow();
-                });
-                test(serialize(value), () => {
-                    expect(() => asString(value, '')).toThrow();
+                    expect(() => assertNumber(value, '')).toThrow();
                 });
             });
         });
