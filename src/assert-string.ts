@@ -1,15 +1,14 @@
 import { PreconditionError } from './precondition-error';
 import {serialize} from "./serialize";
 
-/**
- * to guarantee string type
- * @param {string} - value
- * @return {string} - string
- */
 function isString(value: unknown): value is string{
     return typeof value === 'string';
 }
 
+/**
+ * when it is not the string type, throw error
+ * @param {string} - value
+ */
 export function assertString(value: unknown, target = ''): asserts value is string {
     if (!isString(value)) {
         throw new PreconditionError(`${target} should be string`.trim());

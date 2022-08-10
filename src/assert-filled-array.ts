@@ -8,6 +8,10 @@ function isFilledArray<T>(value: unknown): value is T[] {
     return 0 < value.length;
 }
 
+/**
+ * when there is no item in array, throw error
+ * @param {unknown} - value
+ */
 function assertFilledArray<T>(
     value: unknown,
     target = ''

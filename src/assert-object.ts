@@ -8,6 +8,10 @@ function isObject(value: unknown): value is Record<string, unknown> {
     return value !== null;
 }
 
+/**
+ * when it has not the object type, throw error
+ * @param {string} - value
+ */
 function assertObject(
     value: unknown,
     target = ''
@@ -21,7 +25,10 @@ if (import.meta.vitest) {
     const { describe, test, expect } = import.meta.vitest
     describe('Use case for assertString function', () => {
         describe('“nomal usecase” the values return true are', () => {
-            [{}, []].forEach((value) => {
+            [
+                {},
+                []
+            ].forEach((value) => {
                 test(serialize(value), () => {
                     expect(() => assertObject(value, '')).not.toThrow();
                 });
