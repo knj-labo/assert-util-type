@@ -9,12 +9,9 @@ type TypeEqual<X, Y> =
  * if it have never type, remove never type using Omit
  * @see https://github.com/ProgramacaoAplicada2021/Hamilko_AgendaMeteorol-gica/blob/fb699a253e37f14d60ab8d86b9f6f55295cafa6e/src/common/types/utils.type.ts#L5
  */
-export type RemoveNeverProperties<T> = Omit<
-    T,
-    {
+export type RemoveNeverProperties<T> = Omit<T, {
         [P in keyof T]: T[P] extends never ? P : never
-    }[keyof T]
-    >
+    }[keyof T]>
 
 /**
  * if props is any type, covert to 0
