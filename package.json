@@ -2,13 +2,26 @@
   "name": "assert-util-types",
   "version": "0.0.1",
   "description": "provide assert util types",
-  "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
     "test": "vitest",
     "format": "prettier --check . ",
-    "lint": "eslint --fix src/**/*.ts"
+    "lint": "eslint --fix src/**/*.ts",
+    "build": "tsc && vite build"
   },
+  "files": [
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.umd.js"
+      }
+    }
+  },
+  "main": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
   "keywords": [
     "typescript",
     "util"
@@ -23,6 +36,7 @@
     "prettier": "2.7.1",
     "typescript": "4.7.4",
     "vite": "3.0.4",
+    "vite-plugin-dts": "1.4.1",
     "vitest": "0.21.1"
   }
 }
