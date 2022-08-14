@@ -1,15 +1,14 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
         k: infer I
     ) => void
     ? I
     : never;
 
-type LastOf<T> = UnionToIntersection<
-    T extends any ? () => T : never
-    > extends () => infer R
-    ? R
-    : never;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type LastOf<T> = UnionToIntersection<T extends any ? () => T : never> extends () => infer R ? R : never;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Push<T extends any[], V> = [...T, V];
 
 type UnionToTuple<

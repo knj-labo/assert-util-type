@@ -17,6 +17,7 @@ export type RemoveNeverProperties<T> = Omit<T, {
  * if props is any type, covert to 0
  */
 type AnyAs0<T> = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [P in keyof T]: TypeEqual<T[P], any> extends true ? 0 : T[P];
 };
 
