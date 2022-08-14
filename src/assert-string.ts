@@ -2,7 +2,7 @@ import { PreconditionError } from './precondition-error';
 import { Nominal } from './nominal';
 import { serialize } from "./serialize";
 
-type FillString = Nominal<string, 'FillString'>;
+type FilledString = Nominal<string, 'FillString'>;
 
 function isString(value: unknown): value is string{
     return typeof value === 'string';
@@ -22,7 +22,7 @@ export function assertString(value: unknown, target = ''): asserts value is stri
     }
 }
 
-export function assertFilledString(value: unknown, target = ''): asserts value is FillString {
+export function assertFilledString(value: unknown, target = ''): asserts value is FilledString {
     if(!isFilledString(value)) {
         throw new PreconditionError(`${target} should have least 1 character`.trim());
     }

@@ -1,6 +1,6 @@
 {
   "name": "assert-util-types",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "provide assert util types",
   "scripts": {
     "dev": "vite",
@@ -14,10 +14,7 @@
   ],
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.umd.js"
-      }
+      "import": "./dist/index.umd.js"
     }
   },
   "main": "./dist/index.umd.js",
