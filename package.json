@@ -5,7 +5,9 @@
   "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
-    "test": "vitest"
+    "test": "vitest",
+    "format": "prettier --check . ",
+    "lint": "eslint --fix src/**/*.ts"
   },
   "keywords": [
     "typescript",
