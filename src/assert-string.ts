@@ -33,6 +33,11 @@ export function asString(value: unknown, target = ''): string {
     return value;
 }
 
+export function asFilledString(value: unknown, target = ''): string {
+    assertFilledString(value, target);
+    return value;
+}
+
 if (import.meta.vitest) {
     const { describe, test, expect } = import.meta.vitest
     describe('Use case for assertString function', () => {
