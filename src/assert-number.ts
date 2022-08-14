@@ -11,7 +11,7 @@ function assertNumber(value: unknown, target = ''): asserts value is number {
     }
 }
 
-function asNumber(value: unknown): number {
+export function asNumber(value: unknown): number {
     const n = Number(value);
     assertNumber(n);
     return n;

@@ -2,7 +2,6 @@ import { assertObject } from "./assert-object";
 import { PreconditionError } from "./precondition-error";
 import { RemoveOptionalProperties } from "./remove-optional-properties";
 import { UnionToUnionTuple } from "./union-to-union-tuple";
-
 /**
  * property指定は全てユニークであることを保証する
  */
@@ -58,13 +57,28 @@ if (import.meta.vitest) {
         b: number;
         c: boolean;
     };
+    type I2 = {
+        a: string;
+        b?: number;
+        c?: boolean;
+    };
+
+    const obj: unknown = { a: 4, b: '46', c: true };
     const { describe, test, expect } = import.meta.vitest
 
     describe('assertMatchedType()', () => {
-        test('指定のプロパティがすべて含まれるので例外とならない', () => {
-            expect(() => {
-                assertMatchedType<I1>({ a: 'a', b: 46, c: true }, ['a', 'b', 'c']);
-            }).not.toThrow();
+        describe('指定のプロパティがすべて含まれるので例外とならない', () => {
+            test('case 1', () => {
+                expect(() => {
+                    assertMatchedType<I1>({ a: 'a', b: 46, c: true }, ['a', 'b', 'c']);
+                }).not.toThrow();
+            });
+
+            test('case 2', () => {
+                expect(() => {
+                    assertMatchedType<I2>(obj, ['a']);
+                }).not.toThrow();
+            });
         });
 
         describe('指定のプロパティがすべて含まれないので例外となり、不足プロパティがエラーメッセージに含まれる', () => {
