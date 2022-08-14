@@ -1,0 +1,1 @@
+export type Nominal<P, V extends string> = P & { __NOMINAL: V };

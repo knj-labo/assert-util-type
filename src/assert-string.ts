@@ -1,8 +1,15 @@
 import { PreconditionError } from './precondition-error';
-import {serialize} from "./serialize";
+import { Nominal } from './nominal';
+import { serialize } from "./serialize";
+
+type FillString = Nominal<string, 'FillString'>;
 
 function isString(value: unknown): value is string{
     return typeof value === 'string';
+}
+
+function isFilledString(value: unknown): value is string {
+    return isString(value) &&  value !== '';
 }
 
 /**
@@ -12,6 +19,12 @@ function isString(value: unknown): value is string{
 export function assertString(value: unknown, target = ''): asserts value is string {
     if (!isString(value)) {
         throw new PreconditionError(`${target} should be string`.trim());
+    }
+}
+
+export function assertFilledString(value: unknown, target = ''): asserts value is FillString {
+    if(!isFilledString(value)) {
+        throw new PreconditionError(`${target} should have least 1 character`.trim());
     }
 }
 
