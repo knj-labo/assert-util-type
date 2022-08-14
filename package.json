@@ -1,6 +1,6 @@
 {
   "name": "assert-util-types",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "provide assert util types",
   "scripts": {
     "dev": "vite",
