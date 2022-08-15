@@ -1,7 +1,7 @@
 {
   "name": "assert-util-types",
   "version": "0.0.3",
-  "description": "provide assert util types",
+  "description": "daily work would be much easier if there were utility assert functions",
   "scripts": {
     "dev": "vite",
     "test": "vitest",
@@ -23,6 +23,10 @@
     "typescript",
     "util"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knj-labo/assert-util-type"
+  },
   "author": "jp-knj",
   "license": "MIT",
   "devDependencies": {
