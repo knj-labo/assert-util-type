@@ -1,10 +1,13 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import './app.css'
-import { Nominal, assertFilledString} from "assert-util-types";
+import { assertFilledString } from "assert-util-types";
+import { useTodoFetch } from "./use-todo-fetch";
+import type { TodoId } from "./type";
 
-type FilledString = Nominal<string, 'FilledString'>;
-type TodoId = Nominal<FilledString, 'TodoId'>
+type Todo = {
+    id: TodoId;
+    todo: string;
+    completed: boolean;
+    userId: string;
+}
 
 function assertTodoId(value: unknown): asserts value is TodoId {
     assertFilledString(value);
@@ -16,10 +19,8 @@ function asToDoId(value: unknown): TodoId {
 }
 
 export function App() {
-  const id = asToDoId('1');
-  console.log(id)
-  return (
-    <>
-    </>
-  )
+  const { data, error } = useTodoFetch<Todo>(asToDoId('1'));
+  if (error) return <p>There is an error.</p>
+  if (!data) return <p>Loading...</p>
+  return <p>{data.todo}</p>
 }
