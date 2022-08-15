@@ -1,13 +1,13 @@
 {
   "name": "assert-util-types",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "daily work would be much easier if there were utility assert functions",
   "scripts": {
     "dev": "vite",
     "test": "vitest",
     "format": "prettier --check . ",
     "lint": "eslint --fix src/**/*.ts",
-    "build": "tsc && vite build"
+    "build": "vite build"
   },
   "files": [
     "/dist"
