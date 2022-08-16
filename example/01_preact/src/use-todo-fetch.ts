@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useRef } from 'preact/hooks'
+import { assertMatchedType } from 'assert-util-types';
 import type { TodoId } from './type'
 
 interface State<T> {
@@ -64,7 +65,10 @@ export function useTodoFetch<T = unknown>(id: TodoId, options?: RequestInit): St
                     throw new Error(response.statusText)
                 }
 
-                const data = (await response.json()) as T
+                const data: T = await response.json();
+
+                // if hav　specified props, return the data
+                assertMatchedType<{ data: T }>(data, ['data']);
                 cache.current[url] = data
                 if (cancelRequest.current) return
 

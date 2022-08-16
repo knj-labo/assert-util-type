@@ -18,7 +18,7 @@ function asToDoId(value: unknown): TodoId {
     return value;
 }
 
-export function App() {
+export function App(): JSX.Element {
   const { data, error } = useTodoFetch<Todo>(asToDoId('1'));
   if (error) return <p>There is an error.</p>
   if (!data) return <p>Loading...</p>

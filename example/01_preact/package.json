@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",
-    "assert-util-types": "0.0.5",
+    "assert-util-types": "0.0.7",
     "typescript": "^4.6.4",
     "vite": "^3.0.7"
   }

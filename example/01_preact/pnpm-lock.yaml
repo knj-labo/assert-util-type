@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@preact/preset-vite': ^2.3.0
-  assert-util-types: 0.0.5
+  assert-util-types: 0.0.7
   preact: ^10.10.1
   typescript: ^4.6.4
   vite: ^3.0.7
@@ -12,7 +12,7 @@ dependencies:
 
 devDependencies:
   '@preact/preset-vite': 2.3.0_preact@10.10.2+vite@3.0.7
-  assert-util-types: 0.0.5
+  assert-util-types: 0.0.7
   typescript: 4.7.4
   vite: 3.0.7
 
@@ -377,8 +377,8 @@ packages:
       color-convert: 1.9.3
     dev: true
 
-  /assert-util-types/0.0.5:
-    resolution: {integrity: sha512-oqM6VjhNKebXj+In6Mho+wOxQxmayEeSvd3yWEBWB9/TzOHkGWNktHMSB9/6e7IoPHzLiKMflYnQu+MOAW6jKA==}
+  /assert-util-types/0.0.7:
+    resolution: {integrity: sha512-qyvfdeCeeP2f00A8hYU2BB/aC/kHZ2CO6C2EkACvH51GbHdf/RoklvTBMLbzjne3azbOhAhgcfDsB3jr4QMNlw==}
     dev: true
 
   /babel-plugin-transform-hook-names/1.0.2:
