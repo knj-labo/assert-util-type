@@ -1,6 +1,6 @@
 {
   "name": "assert-util-types",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "daily work would be much easier if there were utility assert functions",
   "scripts": {
     "dev": "vite",
