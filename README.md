@@ -6,7 +6,10 @@
 TypeScript verifies that your program uses the right type as you write code, avoiding potential issues at runtime.
 but, By using any, you expose yourself to issues that are difficult to trace and debug, especially once the code is deployed in production.
 
-use assert-util-types, but not use any and as.
+when we cannot determine the type because we don’t know the result of that library and fetched data.
+we need to use any type for them.
+
+So, if you dont want to use any type. **you can use assert-util-types**.
 
 ## Installation
 
