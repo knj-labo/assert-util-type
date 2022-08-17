@@ -11,7 +11,7 @@ we need to use any type for them.
 
 So, if you dont want to use any type. **you can use assert-util-types**.
 
-## Installation
+## ⚙️ Installation
 
 case: use npm
 ```zsh
@@ -28,10 +28,63 @@ case: use pnpm
 $ pnpm install assert-util-types
 ```
 
-## Usage
+## 📝 Usage
+
+#### case.1 
+nominal types is preventing confusion between two types. In regular Typescript you run into this problem:
+```typescript
+type User = {
+    id: number
+    name: string
+}
+
+type Admin = {
+    id: number
+    name: string
+}
+
+const mike: Admin = {
+    id: 1,
+    name: 'mike'
+}
+const introduceMe = (props: User):string => {
+    const {id, name} = props;
+    return `No.${id}, User is ${name} !`
+}
+// oh... compilation was successful.
+introduceMe(mike); // we can use User and Admin　in the same way.
+```
+but Nominal type solve this problem
 
 ```typescript
-import { Nominal, assertFilledString } from "assert-util-types";
+import { Nominal } from 'assert-util-types';
+
+type userId = Nominal<number, 'userId'>
+type adminId = Nominal<number, 'adminId'>
+
+type User = {
+    id: userId
+    name: string
+}
+
+type Admin = {
+    id: adminId
+    name: string
+}
+
+const mike = {
+    id: 1,
+    name: 'mike'
+} as Admin
+
+
+const introduceMe = (props: User):string => {
+    const {id, name} = props;
+    return `No.${id}, User is ${name} !`
+}
+
+// That's great! get an error! 
+introduceMe(mike); // Argument of type 'Admin' is not assignable to parameter of type 'User'.
 ```
 
 ## Licence
