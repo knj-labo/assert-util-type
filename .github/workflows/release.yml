@@ -21,7 +21,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
       - name: Install dependencies
-      - run: pnpm install
+        run: pnpm install
       - name: execute vitest
-      - run: pnpm run test run
-      - run: pnpm run build
+        run: pnpm run test run
+      - name: release
+        run: pnpm run build
