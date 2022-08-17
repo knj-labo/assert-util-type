@@ -87,5 +87,20 @@ const introduceMe = (props: User):string => {
 introduceMe(mike); // Argument of type 'Admin' is not assignable to parameter of type 'User'.
 ```
 
+#### case2.
+`asSomething` functions
+to create the more complex type checks.
+
+this functions passed the value in a value field upon success, or provides detailed error messages upon failure.
+```typescript
+import { asString } from 'assert-util-types';
+
+// Success
+console.log(asString('This is String type', 'string')) // return 'This is String type'
+
+// Failure
+console.log(asString(['This is Array'], 'sample')) // get the error message "sample should be string`"
+```
+
 ## Licence
 MIT
