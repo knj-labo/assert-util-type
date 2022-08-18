@@ -93,25 +93,54 @@ this functions passed the value in a value field upon success, or provides detai
 
 #### isString
 ```typescript
+import { isString } from 'assert-util-types';
+
+isString('hello');  // true
+isString(1);    // false
 ```
 
 #### assertString
 ```typescript
+import { assertString } from 'assert-util-types';
+
+assertString('hello', 'target'); // ok
+assertString(1, 'target'); // throw error
 ```
 
 #### asString
 ```typescript
 import { asString } from 'assert-util-types';
 
-// Success
-console.log(asString('This is String type', 'string')) // return 'This is String type'
-
-// Failure
-console.log(asString(['This is Array'], 'sample')) // get the error message "sample should be string`
+asString('hello', 'target'); // 'hello'
+asString(1, 'target'); // error message is "target should be string"
 ```
 
 #### isFilledString
 ```typescript
+import { isFilledString } from 'assert-util-types';
+
+isFilledString('hello'); // true 
+isFilledString(''); // false 
+isFilledString(1); // false
+```
+
+#### assertFilledString
+```typescript
+import { asFilledString } from 'assert-util-types';
+
+asFilledString('hello', 'target'); // ok 
+asFilledString('', 'empty string'); // error message is "empty string should have least 1 character" 
+asFilledString(1, 'target'); // error message is "target should have least 1 character"
+```
+
+#### asFilledString
+```typescript
+import { asFilledString } from 'assert-util-types';
+
+asFilledString('hello', 'target'); // 'hello'
+
+asFilledString('', 'empty string'); // error message is "empty string should have least 1 character" 
+asFilledString(1, 'target'); // error message is "target should have least 1 character"
 ```
 
 #### isNumber
