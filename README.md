@@ -30,7 +30,7 @@ $ pnpm install assert-util-types
 
 ## 📝 Usage
 
-#### case.1 
+### Nominal 
 nominal types is preventing confusion between two types. In regular Typescript you run into this problem:
 ```typescript
 type User = {
@@ -87,11 +87,19 @@ const introduceMe = (props: User):string => {
 introduceMe(mike); // Argument of type 'Admin' is not assignable to parameter of type 'User'.
 ```
 
-#### case2.
-`asSomething` functions
-to create the more complex type checks.
-
+### user defined type guard
+`asSomething` functions to create the more complex type checks.
 this functions passed the value in a value field upon success, or provides detailed error messages upon failure.
+
+#### isString
+```typescript
+```
+
+#### assertString
+```typescript
+```
+
+#### asString
 ```typescript
 import { asString } from 'assert-util-types';
 
@@ -99,8 +107,47 @@ import { asString } from 'assert-util-types';
 console.log(asString('This is String type', 'string')) // return 'This is String type'
 
 // Failure
-console.log(asString(['This is Array'], 'sample')) // get the error message "sample should be string`"
+console.log(asString(['This is Array'], 'sample')) // get the error message "sample should be string`
 ```
 
+#### isFilledString
+```typescript
+```
+
+#### isNumber
+```typescript
+```
+
+#### assertNumber
+```typescript
+```
+
+#### asNumber
+```typescript
+```
+
+#### isFilledArray
+```typescript
+```
+
+#### assertFilledArray
+```typescript
+```
+
+#### isObject
+```typescript
+
+```
+
+#### assertObject
+```typescript
+
+```
+
+#### assertMatchType
+```typescript
+```
+
+#### 
 ## Licence
 MIT
