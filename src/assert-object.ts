@@ -2,7 +2,7 @@ import { PreconditionError } from './precondition-error';
 import { serialize } from "./serialize";
 
 function isObject(value: unknown): value is Record<string, unknown> {
-    if (typeof value !== 'object') {
+    if (typeof value !== 'object' || Array.isArray(value)) {
         return false;
     }
     return value !== null;
@@ -27,7 +27,6 @@ if (import.meta.vitest) {
         describe('“nomal usecase” the values return true are', () => {
             [
                 {},
-                []
             ].forEach((value) => {
                 test(serialize(value), () => {
                     expect(() => assertObject(value, '')).not.toThrow();
