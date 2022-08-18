@@ -145,38 +145,77 @@ asFilledString(1, 'target'); // error message is "target should have least 1 cha
 
 #### isNumber
 ```typescript
+import { isNumber } from 'assert-util-types';
+
+isNumber(1); // true
+isNumber(NaN) // false
+isNumber('1'); // false
 ```
 
 #### assertNumber
 ```typescript
+import { assertNumber } from 'assert-util-types';
+
+assertNumber(1, 'target'); // ok
+assertNumber(NaN, 'NaN'); // error message is "NaN should be number"
 ```
 
 #### asNumber
 ```typescript
+import { asNumber } from 'assert-util-types';
+
+asNumber(1, 'target'); // 1
+asNumber(true, 'target'); // 1 
+asNumber('hello', 'NaN'); // TypeError: Cannot convert hello to number
 ```
 
 #### isFilledArray
 ```typescript
+import { isFilledArray } from 'assert-util-types';
+
+isFilledArray(['string', 'number']); // true
+isFilledArray([]); // false
+isFilledArray(1); // false
 ```
 
 #### assertFilledArray
 ```typescript
+import { assertFilledArray } from 'assert-util-types';
+
+assertFilledArray(['string', 'number'], 'target'); // ok
+assertFilledArray([], 'empty array'); // error message is "empty array should have least 1 item"
 ```
 
 #### isObject
 ```typescript
+import { isObject } from 'assert-util-types';
 
+isObject({}); // true
+isObject([]); // false
+isObject(1); // false
 ```
 
 #### assertObject
 ```typescript
+import { assertObject } from 'assert-util-types';
 
+assertObject({}); // ok
+assertObject([], 'array'); // error message is "array should be object"
 ```
 
-#### assertMatchType
+#### assertMatchedType
 ```typescript
-```
+import { assertMatchedType } from 'assert-util-types';
 
-#### 
+type User = {
+  id?: any;
+  name?: string;
+  email: string;
+};
+
+const obj: unknown = { id: 1, name: "foo" };
+
+assertMatchedType<User>(obj, ["email"]); // throws error
+```
 ## Licence
 MIT
