@@ -43,11 +43,8 @@ if (import.meta.vitest) {
     describe('Use case for assertString function', () => {
         describe('“nomal usecase” the values return true are', () => {
             ['string'].forEach((value) => {
-                test(serialize(value), () => {
+                test(serialize('string'), () => {
                     expect(() => assertString(value, '')).not.toThrow();
-                });
-                test(serialize(value), () => {
-                    expect(() => assertFilledString(value, '')).not.toThrow();
                 });
                 test(serialize(value), () => {
                     expect(asString(value, '')).toBe(value);
@@ -78,6 +75,9 @@ if (import.meta.vitest) {
                 test(serialize(value), () => {
                     expect(() => asString(value, '')).toThrow();
                 });
+            });
+            test(serialize(""), () => {
+                expect(() => asFilledString("", '')).toThrow();
             });
         });
     });
