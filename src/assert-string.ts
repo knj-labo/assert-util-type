@@ -47,6 +47,9 @@ if (import.meta.vitest) {
                     expect(() => assertString(value, '')).not.toThrow();
                 });
                 test(serialize(value), () => {
+                    expect(() => assertFilledString(value, '')).not.toThrow();
+                });
+                test(serialize(value), () => {
                     expect(asString(value, '')).toBe(value);
                 });
             });
@@ -68,6 +71,9 @@ if (import.meta.vitest) {
             ].forEach((value) => {
                 test(serialize(value), () => {
                     expect(() => assertString(value, '')).toThrow();
+                });
+                test(serialize(value), () => {
+                    expect(() => asFilledString(value, '')).toThrow();
                 });
                 test(serialize(value), () => {
                     expect(() => asString(value, '')).toThrow();
