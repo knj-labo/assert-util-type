@@ -30,7 +30,7 @@
   "author": "jp-knj",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "18.7.13",
+    "@types/node": "18.7.16",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.35.1",
     "c8": "^7.12.0",
@@ -40,6 +40,6 @@
     "typescript": "4.7.4",
     "vite": "3.0.4",
     "vite-plugin-dts": "1.4.1",
-    "vitest": "0.21.1"
+    "vitest": "0.23.1"
   }
 }
